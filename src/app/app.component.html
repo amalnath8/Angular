@@ -1,0 +1,33 @@
+<h2 style="margin-left:10px; text-align: center;">Student Registration Form</h2>
+<div class="col-6">
+  <div class="container-fluid">
+    <form [formGroup]="registrationForm" (ngSubmit)="onsubmit()">
+      <label>First Name</label>
+      <input type="text" placeholder="First Name" class="form-control" formControlName='firstname'
+        [ngClass]="{'is-invalid':submit&&f.firstname.errors}" />
+      <div *ngIf='submit&&f.firstname.errors' class="invalid-feedback">
+        <div *ngIf="f.firstname.errors">First Name is Required</div>
+      </div>
+
+      <label>Last Name</label>
+      <input type="text" placeholder="Last Name" class="form-control" formControlName='lastname'
+      [ngClass]="{'is-invalid':submit&&f.lastname.errors}" />
+      <div *ngIf='submit&&f.lastname.errors' class="invalid-feedback">
+        <div *ngIf="f.lastname.errors">Last Name is Required</div>
+      </div>
+      <label>Phone</label>
+      <input type="number" placeholder="Phone" class="form-control" formControlName='phone'
+      [ngClass]="{'is-invalid':submit&&f.phone.errors}" />
+      <div *ngIf='submit&&f.phone.errors' class="invalid-feedback">
+        <div *ngIf="f.phone.errors">Phone Number Required</div>
+      </div>
+      <label>Email</label>
+      <input type="email" placeholder="Email" class="form-control" formControlName='email'
+      [ngClass]="{'is-invalid':submit&&f.email.errors}" />
+      <div *ngIf='submit&&f.email.errors' class="invalid-feedback">
+        <div *ngIf="f.email.errors">Email Required</div>
+      </div>
+      <button style="margin-top: 10px;" type="submit" class="btn btn-success">submit</button>
+    </form>
+  </div>
+</div>
